@@ -18,7 +18,7 @@ namespace AopUnityConsole
             {
                 //container.RegisterType<IRepository<Customer>, Repository<Customer>>(new HierarchicalLifetimeManager(), new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<DumpInterceptor>());
 
-                container.RegisterType<IRepository<Customer>, Repository<Customer>>(/*new ContainerControlledLifetimeManager()*/);
+                container.RegisterType<IRepository<Customer>, Repository<Customer>>();      //new ContainerControlledLifetimeManager()
                 container.Configure<Interception>().SetInterceptorFor<IRepository<Customer>>(new TransparentProxyInterceptor());
 
                 var customerRepository = container.Resolve<IRepository<Customer>>();
